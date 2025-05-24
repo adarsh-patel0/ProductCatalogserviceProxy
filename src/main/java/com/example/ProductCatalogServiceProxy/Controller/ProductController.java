@@ -13,7 +13,7 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public String getProduct(@PathVariable("id") String productId){
-        return "Returning product with id " +productId;
+        return "Returning product with id " +productIdgit ;
     }
 
     @PostMapping("/product")
