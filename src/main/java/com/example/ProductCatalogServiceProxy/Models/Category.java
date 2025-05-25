@@ -13,6 +13,6 @@ public class Category extends BaseModel{
 
     private String description;
 
-    private List<product> products;
+    private List<Product> products;
 
 }

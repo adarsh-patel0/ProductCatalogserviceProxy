@@ -10,6 +10,8 @@ import lombok.ToString;
 @ToString
 public class ProductDto {
 
+    private Long id;
+
     private String title;
 
     private String description;
@@ -18,5 +20,7 @@ public class ProductDto {
 
     private String imageUrl;
 
-    private Category category;
+    private String category;
+
+    private RatingDto ratingDto;
 }

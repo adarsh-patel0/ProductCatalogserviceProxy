@@ -1,27 +1,40 @@
 package com.example.ProductCatalogServiceProxy.Controller;
 
 import com.example.ProductCatalogServiceProxy.Dto.ProductDto;
+import com.example.ProductCatalogServiceProxy.Models.Product;
+import com.example.ProductCatalogServiceProxy.Services.iProductService;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@RequestMapping("/product")
 @RestController
 public class ProductController {
 
-    @GetMapping("/product")
-    public String getProducts(){
-        return "returning List of All Products";
+    iProductService productService;
+
+    public ProductController(iProductService productService){
+        this.productService = productService;
     }
 
-    @GetMapping("/product/{id}")
-    public String getProduct(@PathVariable("id") String productId){
-        return "Returning product with id " +productIdgit ;
+
+    @GetMapping("")
+    public List<Product> getProducts(){
+        return productService.getProducts();
     }
 
-    @PostMapping("/product")
-    public String createProduct(@RequestBody ProductDto productDto){
-        return "creating product ..." +productDto;
+    @GetMapping("{id}")
+    public Product getProduct(@PathVariable("id") Long productId){
+        return productService.getProduct(productId);
     }
 
-    @PatchMapping("/product")
+    @PostMapping("")
+    public Product createProduct(@RequestBody ProductDto productDto){
+        return productService.createProduct(productDto);
+    }
+
+    @PatchMapping("")
     public String updateProduct(@RequestBody ProductDto productDto){
         return "updating product ..." +productDto;
     }
