@@ -1,9 +1,6 @@
 package com.example.ProductCatalogServiceProxy.Services;
 
-import com.example.ProductCatalogServiceProxy.Dto.ProductDto;
 import com.example.ProductCatalogServiceProxy.Models.Product;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -13,7 +10,7 @@ public interface iProductService {
 
     Product getProduct(Long productId);
 
-    Product createProduct(ProductDto productDto);
+    Product createProduct(Product product);
 
-    String updateProduct( ProductDto productDto);
+    Product updateProduct(Long id, Product product);
 }
