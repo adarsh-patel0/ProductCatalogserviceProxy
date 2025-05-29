@@ -28,5 +28,4 @@ public class FakeStoreAPIClient {
         return FakestoreProductdtoResponseEntity.getBody();
     }
 
-
 }
